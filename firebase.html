@@ -1,0 +1,60 @@
+<html>
+    <head></head>
+    <body>
+        
+        <h1>Firebase project</h1>
+        <form autocomplete="off" onsubmit="sign(event)">
+        <input type="text" id="name" placeholder="enter your name">
+        <input type="password" id="pass" placeholder="enter your password">
+        <button type="submit"  id="sub">submit</button>
+      </form><script>
+            async function sign(e){
+              e.preventDefault()
+              const name=document.getElementById("name");
+              const pass=document.getElementById("pass");
+              console.log(name.value,pass.value);
+              try{
+                const result=await firebase.auth().createUserWithEmailAndPassword(name.value, pass.value);
+                console.log(result);
+              }catch(err){
+                console.log(err)
+              }
+
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBTg7XIjrSIRiTMWUJc_NMe1W2gg9RiyN0",
+    authDomain: "firstweb-39478.firebaseapp.com",
+    projectId: "firstweb-39478",
+    storageBucket: "firstweb-39478.appspot.com",
+    messagingSenderId: "1060244001048",
+    appId: "1:1060244001048:web:9ffbb40cd9ea2d6f864e6d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    </body>
+</html>
